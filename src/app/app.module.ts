@@ -12,6 +12,7 @@ import { EmailIdFormComponent } from './emailId/email-id-form/email-id-form.comp
 import { EmailIdListComponent } from './emailId/email-id-list/email-id-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewCategoryComponent } from './category/view-category/view-category.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryFormComponent,
     EmailIdFormComponent,
     EmailIdListComponent,
+    ViewCategoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,47 @@
-<p>category-form works!</p>
+<div class="col-md-4 offset-md-4 mt-5">
+  <form [formGroup]="form" class="p-5 border">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Category Name</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="name"
+      />
+    </div>
+
+    <button
+      *ngIf="!editMode"
+      type="submit"
+      class="btn btn-primary me-2"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+      Create
+    </button>
+    <button
+      *ngIf="editMode"
+      type="submit"
+      class="btn btn-primary me-2"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+      Update
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [routerLink]="['/categories']"
+    >
+      Back
+    </button>
+    <div *ngIf="errMsg" class="text-danger">{{ errMsg }}</div>
+    <div *ngIf="sucessMsg && !editMode" class="text-success">
+      {{ sucessMsg }} is Created
+    </div>
+    <div *ngIf="sucessMsg && editMode" class="text-success">
+      {{ sucessMsg }} is Updated
+    </div>
+  </form>
+</div>
