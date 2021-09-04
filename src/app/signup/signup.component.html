@@ -1,0 +1,37 @@
+<div class="col-md-4 offset-md-4 mt-5">
+  <form [formGroup]="form" class="p-5 border">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="userName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        formControlName="password"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+      Submit</button
+    ><br />
+    <div *ngIf="errMsg" class="text-danger">{{ errMsg }}</div>
+    <div class="text-primary" [routerLink]="['/login']">
+      Click here to Login
+    </div>
+  </form>
+</div>
+
+{{ form.value | json }}
