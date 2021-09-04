@@ -7,18 +7,43 @@ import { EmailIdFormComponent } from './emailId/email-id-form/email-id-form.comp
 import { EmailIdListComponent } from './emailId/email-id-list/email-id-list.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [LoginGuard] },
   { path: 'register', component: SignupComponent },
-  { path: 'categories', component: CategoryListComponent },
-  { path: 'categories/new', component: CategoryFormComponent },
-  { path: 'categories/edit/:id', component: CategoryFormComponent },
-  { path: 'categories/:id', component: ViewCategoryComponent },
-  { path: 'emailIds', component: EmailIdListComponent },
-  { path: 'emailIds/new', component: EmailIdFormComponent },
+  {
+    path: 'categories',
+    component: CategoryListComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'categories/new',
+    component: CategoryFormComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'categories/edit/:id',
+    component: CategoryFormComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'categories/:id',
+    component: ViewCategoryComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'emailIds',
+    component: EmailIdListComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'emailIds/new',
+    component: EmailIdFormComponent,
+    canActivate: [LoginGuard],
+  },
 ];
 
 @NgModule({
